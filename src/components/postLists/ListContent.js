@@ -35,9 +35,9 @@ const ListContent = ({ posts }) => {
               <ListContentBodyTd style={{ flex: 1.5 }}>
                 {post.target}
               </ListContentBodyTd>
-              <ListContentBodyTd style={{ flex: 9 }}>
+              <ListContentBodyNotCenterTd style={{ flex: 9 }}>
                 {post.title}
-              </ListContentBodyTd>
+              </ListContentBodyNotCenterTd>
               <ListContentBodyTd style={{ flex: 2 }}>
                 {post.author}
               </ListContentBodyTd>
@@ -110,6 +110,18 @@ const ListContentBodyTd = styled.td`
   height: 30px;
   display: flex;
   justify-content: center;
+  align-items: center;
+`;
+const ListContentBodyNotCenterTd = styled.td`
+  color: #656565;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
 `;
 const ListContentPostBox = styled.div`

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // FIXME : Header의 Height를 임시적으로 적용
-const HEADER_HEIGHT = "65px"
+const HEADER_HEIGHT = "100px"
 
 // Color
 const GRAY30 = "#A8A8A8"
@@ -14,11 +14,13 @@ const SigninContainer = styled.div`
   font-family: 'Pretendard Variable', sans-serif;
   display: flex;
   align-items: center;
-  width: 464px;
-  // FIXME : CSS 초기화 진행 시 {-16px} 부분 삭제
-  height: calc(100dvh - ${HEADER_HEIGHT} - 16px);
+  max-width: 464px;
+  
+  // FIXME : CSS 초기화 진행 시 수정 필요 삭제
+  height: calc(100dvh - ${HEADER_HEIGHT} - 36px);
+  //padding-top: ${HEADER_HEIGHT};
+
   margin: auto;
-  padding-top: ${HEADER_HEIGHT};
   & form{
     width: 100%;
   }

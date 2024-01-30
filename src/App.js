@@ -5,6 +5,7 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import PostList from "./pages/PostList";
 import About from "./pages/About";
+import PostViewer from "./pages/PostViewer";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "post",
         element: <PostList />,
+      },
+      {
+        path: "postviewer",
+        element: <PostViewer />,
       },
     ],
   },

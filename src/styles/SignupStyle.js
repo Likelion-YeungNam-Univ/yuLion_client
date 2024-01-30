@@ -1,24 +1,11 @@
 import styled, { css } from "styled-components";
+import { GRAY30, GRAY50, PRIMARY, WHITE } from "./GlobalStyle";
 
-// FIXME : Header의 Height를 임시적으로 적용
 const HEADER_HEIGHT = "100px"
 
-// Color
-const GRAY30 = "#A8A8A8"
-const GRAY50 = "#1F1F1F"
-const PRIMARY = "#FF7710"
-const WHITE = "#FFFFFF"
-
-
 const SignupContainer = styled.div`
-  // FIXME : 글꼴 관련 변경 시 수정 필요
-  font-family: 'Pretendard Variable', sans-serif;
   max-width: 464px;
-  
-  // FIXME : CSS 초기화 진행 시 수정 필요 삭제
   height: calc(100dvh - ${HEADER_HEIGHT} - 36px);
-  // padding-top: ${HEADER_HEIGHT};
-
   margin: auto;
   & form{
     width: 100%;
@@ -36,7 +23,7 @@ const SignupContainer = styled.div`
 const SignupImg = styled.img`
   display: block;
   margin-top: 16px;
-  margin-bottom: 71px;
+  margin-bottom: 40px;
 `
 
 const InputBox = styled.div`

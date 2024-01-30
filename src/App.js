@@ -6,6 +6,7 @@ import Signup from "./pages/Signup";
 import PostList from "./pages/PostList";
 import About from "./pages/About";
 import PostViewer from "./pages/PostViewer";
+import { GlobalStyle } from "./styles/GlobalStyle";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+      <GlobalStyle />
       <RouterProvider router={router} />
     </>
   );

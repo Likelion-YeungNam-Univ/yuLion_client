@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import PostViewer from "./PostViewerBox";
+// import PostViewer from "./PostViewerBox";
 
 const PostSearchBar = () => {
   return (

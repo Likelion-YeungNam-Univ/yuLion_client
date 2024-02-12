@@ -10,7 +10,9 @@ export const GlobalStyle = createGlobalStyle`
     }
 `;
 
+export const GRAY20 = "#D1D1D1";
 export const GRAY30 = "#A8A8A8";
 export const GRAY50 = "#1F1F1F";
 export const PRIMARY = "#FF7710";
 export const WHITE = "#FFFFFF";
+

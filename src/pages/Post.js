@@ -7,6 +7,8 @@ const Post = () => {
     const trackName = ['UX/UI', 'Front-end', 'Back-end'];
     const rightBoxLabel = ['NOTICE', '커뮤니티', 'Q&A']
 
+    console.log(trackName);
+
     return(
         <PostContainer>
             <LeftBox>
@@ -16,8 +18,8 @@ const Post = () => {
                         <MoreRead/>
                     </div>
                     <div className="track-box">
-                        {trackName.map(track=>(
-                            <div>
+                        {trackName.map((track, index)=>(
+                            <div key={index}>
                                 <b>{track}</b>
                                 <PreviewPostList/>
                             </div>
@@ -31,7 +33,7 @@ const Post = () => {
                     </div>
                     <div className="track-box">
                         {trackName.map(track=>(
-                            <div>
+                            <div key={track}>
                                 <b>{track}</b>
                                 <PreviewPostList/>
                             </div>
@@ -55,15 +57,18 @@ const Post = () => {
                 
             </LeftBox>
             <RightBox>
-                {rightBoxLabel.map(label=>(
-                    <div>
-                        <div className="label-box">
-                            <Label>{label}</Label>
-                            <MoreRead/>
+                <RightPost>
+                    {rightBoxLabel.map(label=>(
+                        <div key={label}>
+                            <div className="label-box">
+                                <Label>{label}</Label>
+                                <MoreRead/>
+                            </div>
+                            <PreviewPostList/>
                         </div>
-                        <PreviewPostList/>
-                    </div>
-                ))}
+                    ))}
+                </RightPost>
+                <button>글쓰기</button>
             </RightBox>
         </PostContainer>
     )
@@ -79,7 +84,10 @@ const PostContainer = styled.div`
 const LeftBox = styled.div`
     width: 850px;
     height: 867px;
-    //background: pink;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .label-box{
         display: flex;
@@ -105,9 +113,26 @@ const LeftBox = styled.div`
 `;
 
 const RightBox = styled.div`
-    width: 850px;
+    height: 867px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    button{
+        width: 80px;
+        height: 40px;
+        border: 2px solid #D1D1D1;
+        background: none;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+`;
+
+
+const RightPost = styled.div`
+    width: 800px;
     height: 635px;
-    //background: skyblue;
 
     display: flex;
     flex-direction: column;

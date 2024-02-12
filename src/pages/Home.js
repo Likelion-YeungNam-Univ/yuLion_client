@@ -33,7 +33,7 @@ const Home = () => {
                     </div>
                     <div className="track-box">
                         {trackName.map(track=>(
-                            <div>
+                            <div key={track}>
                                 <b>{track}</b>
                                 <PreviewPostList/>
                             </div>

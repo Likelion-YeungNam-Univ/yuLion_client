@@ -3,6 +3,8 @@ import Label from "../components/Label";
 import PreviewPostList from "../components/previewPost/PreviewPostList";
 
 const LectureNote = () => {
+    const trackNames = ['UX/UI', 'Front-end', 'Back-end'];
+
     return(
         <LectureNoteContainer>
             <div className="page-top">
@@ -10,20 +12,14 @@ const LectureNote = () => {
                 <button>글쓰기</button>
             </div>
             <hr/>
-            <TrackPost>
-                <div>
-                    <p className="tracks">UX/UI</p>
-                    <PreviewPostList/>
-                </div>
-                <div>
-                    <p className="tracks">Front-end</p>
-                    <PreviewPostList/>
-                </div>
-                <div>
-                    <p className="tracks">Back-end</p>
-                    <PreviewPostList/>
-                </div>
-            </TrackPost>
+            <TrackPostBox>
+                {trackNames.map(track => (
+                    <div key={track}>
+                        <p className="tracks">{track}</p>
+                        <PreviewPostList/>
+                    </div>
+                ))}
+            </TrackPostBox>
         </LectureNoteContainer>
     )
 }
@@ -55,7 +51,7 @@ const LectureNoteContainer = styled.div`
     }
 `;
 
-const TrackPost = styled.div`
+const TrackPostBox = styled.div`
     width: 1204px;
     margin: auto;
     display: grid;

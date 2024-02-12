@@ -5,9 +5,7 @@ import PreviewPostList from "../components/previewPost/PreviewPostList";
 
 const Post = () => {
     const trackName = ['UX/UI', 'Front-end', 'Back-end'];
-    const rightBoxLabel = ['NOTICE', '커뮤니티', 'Q&A']
-
-    console.log(trackName);
+    const rightBoxLabel = ['NOTICE', '커뮤니티', 'Q&A'];
 
     return(
         <PostContainer>

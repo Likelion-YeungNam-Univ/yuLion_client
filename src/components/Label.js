@@ -10,6 +10,7 @@ export default Label;
 
 const LabelName = styled.div`
         border-left: 5px solid #FF7710;
+        line-height: 18px;
 
         padding-left: 15px;
         margin-bottom: 0px;

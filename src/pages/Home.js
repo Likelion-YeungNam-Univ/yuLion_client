@@ -4,13 +4,12 @@ import Label from "../components/Label";
 import MoreRead from "../components/previewPost/MoreRead.js";
 
 const Home = () => {
-    //const labelNames = ['NOTICE', 'STUDY', 'HOMEWORK', 'TEAM BILDING'];
     const trackName = ['UX/UI', 'Front-end', 'Back-end'];
 
     return (
         <HomeLayout>
             <div className="home-img">
-                <img src="http://via.placeholder.com/1840x404" alt="임시이미지"/>
+                <img src="./home-image.png" alt="홈 이미지"/>
             </div>
             <div className="grid-box">
                 <div>
@@ -34,7 +33,7 @@ const Home = () => {
                     </div>
                     <div className="track-box">
                         {trackName.map(track=>(
-                            <div>
+                            <div key={track}>
                                 <b>{track}</b>
                                 <PreviewPostList/>
                             </div>
@@ -80,9 +79,11 @@ const HomeLayout = styled.div`
         grid-template-columns: 268px 268px 268px;
         grid-template-rows: minmax(190px, auto);
         grid-column-gap: 25px;
+        margin-top: 15px;
 
         b{  
-            margin-left: 35px;
+            margin-left: 20px;
+            font-weight: 700;
             font-size: 14px;
             color: #656565;
             text-decoration:underline;

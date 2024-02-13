@@ -31,6 +31,7 @@ const SearchInput = styled.input`
   align-items: flex-start;
   gap: 16px;
   flex-shrink: 0;
+  outline: none;
 `;
 
 const SearchButton = styled.button`

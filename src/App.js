@@ -6,11 +6,13 @@ import Signup from "./pages/Signup";
 import PostList from "./pages/PostList";
 import About from "./pages/About";
 import PostViewer from "./pages/PostViewer";
+import AuthComplete from "./pages/AuthComplete";
 import PostUpload from "./pages/PostUpload";
 import { GlobalStyle } from "./styles/GlobalStyle";
 import Admin from "./pages/Admin";
 import LectureNote from "./pages/LectureNote";
 import Post from "./pages/Post";
+
 
 const router = createBrowserRouter([
   {
@@ -59,6 +61,13 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/authcomplete",
+    element: <AuthComplete/>,
+    children: [
+
+    ],
+  }
 ]);
 
 function App() {

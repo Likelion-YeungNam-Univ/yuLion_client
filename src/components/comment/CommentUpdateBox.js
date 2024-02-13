@@ -47,6 +47,7 @@ const CommentInputField = styled.input`
   width: 1332px;
   height: 70px;
   border: pink;
+  outline: none;
 `;
 const CommentUpdate = styled.button`
   color: var(--Gray-30, #a8a8a8);

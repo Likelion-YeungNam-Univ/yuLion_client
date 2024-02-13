@@ -12,7 +12,7 @@ import { GlobalStyle } from "./styles/GlobalStyle";
 import Admin from "./pages/Admin";
 import LectureNote from "./pages/LectureNote";
 import Post from "./pages/Post";
-
+import QnA from "./pages/QnA";
 
 const router = createBrowserRouter([
   {
@@ -53,21 +53,23 @@ const router = createBrowserRouter([
       },
       {
         path: "lecturenote",
-        element: <LectureNote /> ,
+        element: <LectureNote />,
       },
       {
         path: "post",
         element: <Post />,
       },
+      {
+        path: "qna",
+        element: <QnA />,
+      },
     ],
   },
   {
     path: "/authcomplete",
-    element: <AuthComplete/>,
-    children: [
-
-    ],
-  }
+    element: <AuthComplete />,
+    children: [],
+  },
 ]);
 
 function App() {

@@ -14,9 +14,11 @@ const PreviewPostListItem = () => {
 export default PreviewPostListItem;
 
 const PreviewListItem = styled.li`
+    list-style-type : disc;
     color: #656565;
-    // line-height:30%;
+    line-height:200%;
     cursor: pointer;
+    margin-left: 20px;
 
     &::marker {
         font-size: 10px;

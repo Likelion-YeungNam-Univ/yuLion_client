@@ -9,6 +9,8 @@ import {
   NavItem,
   LinkItem,
 } from "../styles/StyledLayout";
+import { useState } from "react";
+import AuthModal from "../components/modals/AuthModal";
 
 const Layout = () => {
   const navigate = useNavigate();
@@ -17,8 +19,19 @@ const Layout = () => {
     navigate("/");
   };
 
-  const onClickAdmin = () => {
-    navigate("/admin");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hasPermission, setHasPermission] = useState(false);
+
+  const handleAdminClick = () => {
+    if (!hasPermission) {
+      setIsModalOpen(true);
+    } else {
+      navigate("/admin");
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -26,7 +39,7 @@ const Layout = () => {
       <Header>
         <Logo src="/Logo.png" onClick={onClickLogo} />
         {/* TODO: 사용자에게 권한이 없을 시 관리자 페이지 이동 버튼은 없어야함! */}
-        <AdminButton onClick={onClickAdmin}>Admin</AdminButton>
+        <AdminButton onClick={handleAdminClick}>Admin</AdminButton>
         <Navbar>
           <Nav>
             <NavItem>
@@ -48,6 +61,7 @@ const Layout = () => {
         </Navbar>
       </Header>
       <Outlet />
+      <AuthModal isOpen={isModalOpen} onClose={closeModal} />
     </Wrapper>
   );
 };

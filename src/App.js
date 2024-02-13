@@ -7,7 +7,11 @@ import PostList from "./pages/PostList";
 import About from "./pages/About";
 import PostViewer from "./pages/PostViewer";
 import AuthComplete from "./pages/AuthComplete";
+import PostUpload from "./pages/PostUpload";
 import { GlobalStyle } from "./styles/GlobalStyle";
+import Admin from "./pages/Admin";
+import LectureNote from "./pages/LectureNote";
+import Post from "./pages/Post";
 
 
 const router = createBrowserRouter([
@@ -32,12 +36,28 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
-        path: "post",
+        path: "postlist",
         element: <PostList />,
       },
       {
         path: "postviewer",
         element: <PostViewer />,
+      },
+      {
+        path: "postupload",
+        element: <PostUpload />,
+      },
+      {
+        path: "admin",
+        element: <Admin />,
+      },
+      {
+        path: "lecturenote",
+        element: <LectureNote /> ,
+      },
+      {
+        path: "post",
+        element: <Post />,
       },
     ],
   },

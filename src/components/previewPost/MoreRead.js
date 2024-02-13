@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const MoreRead = () => {
     return(
-        <LinkBtn to='/post'>
+        <LinkBtn to='/postlist'>
             <div>
                 <AiOutlinePlus/>
                 <p>전체보기</p>

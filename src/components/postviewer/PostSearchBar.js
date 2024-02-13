@@ -32,6 +32,7 @@ const SearchInput = styled.input`
   align-items: flex-start;
   gap: 16px;
   flex-shrink: 0;
+  outline: none;
 `;
 
 const SearchButton = styled.button`
@@ -52,7 +53,7 @@ const SearchButton = styled.button`
 const PostViewerButton = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-bottom:24px;
+  margin-bottom: 24px;
   // float: right;
 `;
 const NextButton = styled.button`
@@ -92,6 +93,6 @@ const PostListButton = styled.button`
 `;
 const SearchContainer = styled.div`
   margin-right: 240px;
-  margin-top:61px;
+  margin-top: 61px;
   //   float: right;
 `;

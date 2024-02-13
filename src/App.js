@@ -6,7 +6,9 @@ import Signup from "./pages/Signup";
 import PostList from "./pages/PostList";
 import About from "./pages/About";
 import PostViewer from "./pages/PostViewer";
+import AuthComplete from "./pages/AuthComplete";
 import { GlobalStyle } from "./styles/GlobalStyle";
+
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,13 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/authcomplete",
+    element: <AuthComplete/>,
+    children: [
+
+    ],
+  }
 ]);
 
 function App() {

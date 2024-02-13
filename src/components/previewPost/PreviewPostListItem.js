@@ -15,7 +15,7 @@ export default PreviewPostListItem;
 
 const PreviewListItem = styled.li`
     color: #656565;
-    line-height:30%;
+    // line-height:30%;
     cursor: pointer;
 
     &::marker {

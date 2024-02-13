@@ -17,9 +17,9 @@ const PostViewer = () => {
           <PostDate>조회</PostDate>
         </PostInfoEtc>
       </PostTitleContainer>
-      <PostContext>
+      <PostContext type='text'  placeholder="내용"/>
         <PostText>내용</PostText>
-      </PostContext>
+      {/* </PostContext> */}
       <CommentBox />
       <CommentUpdateBox />
     </PostContainer>
@@ -31,7 +31,8 @@ export default PostViewer;
 const PostContainer = styled.div`
   padding-left: 30px;
   padding-top: 32px;
-  width: 1410px;
+  width: 1440px;
+  // width: 1410px;
   height: 1179px;
   margin: 0 auto;
   border: 1px solid var(--Gray-20, #d1d1d1);
@@ -96,11 +97,16 @@ const PostDate = styled.h1`
   line-height: 140%;
   margin-right: 16px;
 `;
-const PostContext = styled.div`
+const PostContext = styled.input`
   height: 543px;
+  //576
   width: 1380px;
   border-bottom: 1px solid #a8a8a8;
   border-top: 1px solid #a8a8a8;
+  outline: none;
+  border-right: none;
+  border-left: none;
+  
 `;
 const PostText = styled.h1`
   color: #000;

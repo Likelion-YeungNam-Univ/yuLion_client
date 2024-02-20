@@ -42,17 +42,10 @@ const Home = () => {
                 </div>
                 <div>
                     <div className="label-box">
-                        <Label>강의자료</Label>
+                        <Label>TEAM BILDING</Label>
                         <MoreRead/>
                     </div>
-                    <div className="track-box">
-                        {trackName.map((track, index)=>(
-                            <div key={index}>
-                                <b>{track}</b>
-                                <PreviewPostList/>
-                            </div>
-                        ))}
-                    </div>
+                    <PreviewPostList/>
                 </div>
             </div>
         </HomeLayout>

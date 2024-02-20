@@ -63,12 +63,11 @@ const router = createBrowserRouter([
         path: "qna",
         element: <QnA />,
       },
+      {
+        path:"authcomplete",
+        element: <AuthComplete/>,
+      }
     ],
-  },
-  {
-    path: "/authcomplete",
-    element: <AuthComplete />,
-    children: [],
   },
 ]);
 

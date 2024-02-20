@@ -1,8 +1,21 @@
 import styled from "styled-components";
 import CommentBox from "../comment/CommentBox";
 import CommentUpdateBox from "../comment/CommentUpdateBox";
+import { useEffect, useState } from "react";
+import MDEditor from '@uiw/react-md-editor';
 
 const PostViewer = () => {
+
+  const [body, setBody] = useState(`# Hello world
+  ### this is test data
+  - one
+  - two
+  `)
+
+  useEffect(() => {
+    console.log(body)
+  }, [body])
+
   return (
     <PostContainer>
       <PostTitleContainer>
@@ -20,8 +33,11 @@ const PostViewer = () => {
           <PostDate>조회</PostDate>
         </PostInfoEtc>
       </PostTitleContainer>
-      <PostContext type="text" placeholder="내용" />
-      <PostText>내용</PostText>
+      <Divider></Divider>
+      <MdWrap>
+        <MDEditor.Markdown source={body} style={{ whiteSpace: 'pre-wrap' }} />
+      </MdWrap>
+      <Divider></Divider>
       {/* </PostContext> */}
       <CommentBox />
       <CommentUpdateBox />
@@ -32,8 +48,7 @@ const PostViewer = () => {
 export default PostViewer;
 
 const PostContainer = styled.div`
-  padding-left: 30px;
-  padding-top: 32px;
+  padding: 20px;
   width: 1440px;
   height: 1199px;
   margin: 0 auto;
@@ -122,23 +137,37 @@ const PostDate = styled.h1`
   line-height: 140%;
   margin-right: 16px;
 `;
-const PostContext = styled.input`
-  height: 543px;
-  //576
-  width: 1380px;
-  border-bottom: 1px solid #a8a8a8;
-  border-top: 1px solid #a8a8a8;
-  outline: none;
-  border-right: none;
-  border-left: none;
-`;
-const PostText = styled.h1`
-  color: #000;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 140%;
-  margin-left: 20px;
-  margin-top: 32px;
-`;
+// const PostContext = styled.input`
+//   height: 543px;
+//   //576
+//   width: 1380px;
+//   border-bottom: 1px solid #a8a8a8;
+//   border-top: 1px solid #a8a8a8;
+//   outline: none;
+//   border-right: none;
+//   border-left: none;
+// `;
+// const PostText = styled.h1`
+//   color: #000;
+//   font-family: Pretendard;
+//   font-size: 16px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 140%;
+//   margin-left: 20px;
+//   margin-top: 32px;
+// `;
+
+
+const MdWrap = styled.div`
+  padding: 20px;
+  
+`
+
+const GRAY30 = "#A8A8A8";
+const Divider = styled.div`
+  margin-top: 5px;
+  margin-bottom: 25px;
+  height: 1px;
+  background-color: ${GRAY30};
+`

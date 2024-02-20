@@ -12,9 +12,15 @@ import {
   SignupBtn
 } from "../styles/SignupStyle"
 
+// Gender
 const MALE = "male"
 const FEMALE = "female"
 const OTHER = "other"
+
+// User Type
+// const MANAGER = "manager"
+// const GENERAL = "general"
+
 
 const tempAPI = (data) => {
   return new Promise((resolve,) => {
@@ -35,7 +41,8 @@ const Signup = () => {
   } = useForm({ 
     mode: 'onChange',
     defaultValues: {
-      gender: OTHER
+      gender: OTHER,
+      // usertype: GENERAL
     }
   })
 
@@ -166,6 +173,18 @@ const Signup = () => {
             기타
           </GenderItem>
         </GenderBox>
+
+        {/* User type */}
+        {/* <GenderBox>
+          <GenderItem $isSelect={watch("usertype") === MANAGER} $loc={"left"}>
+            <GenderRadioBtn value={MANAGER}   {...register("usertype")}></GenderRadioBtn>
+              메니저
+            </GenderItem>
+          <GenderItem $isSelect={watch("usertype") === GENERAL} $loc={"right"}>
+            <GenderRadioBtn value={GENERAL} {...register("usertype")}></GenderRadioBtn>
+              아기사자
+            </GenderItem>
+        </GenderBox> */}
 
         {/* Phone number */}
         <Controller

@@ -6,7 +6,10 @@ const PostViewer = () => {
   return (
     <PostContainer>
       <PostTitleContainer>
-        <MovePostList href="/post">NOTICE {">"}</MovePostList>
+        <PostHeader>
+          <MovePostList href="/post">NOTICE {">"}</MovePostList>
+          <PostingButton>글 등록</PostingButton>
+        </PostHeader>
         <PostTitle>제목</PostTitle>
         <PostInfo>
           <PostWriter>이름</PostWriter>
@@ -17,8 +20,8 @@ const PostViewer = () => {
           <PostDate>조회</PostDate>
         </PostInfoEtc>
       </PostTitleContainer>
-      <PostContext type='text'  placeholder="내용"/>
-        <PostText>내용</PostText>
+      <PostContext type="text" placeholder="내용" />
+      <PostText>내용</PostText>
       {/* </PostContext> */}
       <CommentBox />
       <CommentUpdateBox />
@@ -32,8 +35,7 @@ const PostContainer = styled.div`
   padding-left: 30px;
   padding-top: 32px;
   width: 1440px;
-  // width: 1410px;
-  height: 1179px;
+  height: 1199px;
   margin: 0 auto;
   border: 1px solid var(--Gray-20, #d1d1d1);
 `;
@@ -41,6 +43,27 @@ const PostTitleContainer = styled.div`
   width: 1380px;
   // padding-left: 20px;
   padding-left: 20px;
+`;
+const PostHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const PostingButton = styled.button`
+  display: inline-flex;
+  padding: 10px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  background: rgba(255, 119, 16, 0.2);
+  color: var(--Primary-color, #ff7710);
+  /* Body/14px/140%/semibold */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  border: none;
 `;
 
 const MovePostList = styled.a`
@@ -82,11 +105,13 @@ const PostField = styled.h1`
 `;
 const PostInfo = styled.div`
   display: flex;
+  margin-top: 10px;
 `;
 const PostInfoEtc = styled.div`
   display: flex;
   width: 1380px;
   margin-bottom: 32px;
+  margin-top: 10px;
 `;
 const PostDate = styled.h1`
   color: var(--Gray-40, #656565);
@@ -106,7 +131,6 @@ const PostContext = styled.input`
   outline: none;
   border-right: none;
   border-left: none;
-  
 `;
 const PostText = styled.h1`
   color: #000;

@@ -33,6 +33,7 @@ const CommentWriter = styled.h1`
   font-weight: 700;
   line-height: 140%;
   margin-left: 22px;
+  margin-top: 16px;
 `;
 const CommentInputField = styled.input`
   // border: none;

@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import {
   Wrapper,
   Header,
@@ -14,6 +14,7 @@ import AuthModal from "../components/modals/AuthModal";
 
 const Layout = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onClickLogo = () => {
     navigate("/");
@@ -34,31 +35,37 @@ const Layout = () => {
     setIsModalOpen(false);
   };
 
+  // 현재 경로가 '/authcomplete'일 경우를 확인합니다.
+  const isAuthCompletePage = location.pathname === '/authcomplete';
+
   return (
     <Wrapper>
       <Header>
         <Logo src="/Logo.png" onClick={onClickLogo} />
-        {/* TODO: 사용자에게 권한이 없을 시 관리자 페이지 이동 버튼은 없어야함! */}
-        <AdminButton onClick={handleAdminClick}>Admin</AdminButton>
-        <Navbar>
-          <Nav>
-            <NavItem>
-              <LinkItem to="/">HOME</LinkItem>
-            </NavItem>
-            <NavItem>
-              <LinkItem to="/about">ABOUT US</LinkItem>
-            </NavItem>
-            <NavItem>
-              <LinkItem to="/post">POST</LinkItem>
-            </NavItem>
-            <NavItem>
-              <LinkItem to="/people">PEOPLE</LinkItem>
-            </NavItem>
-            <NavItem>
-              <LinkItem to="/signin">JOIN US</LinkItem>
-            </NavItem>
-          </Nav>
-        </Navbar>
+        {/* '/authcomplete' 페이지가 아닐 때만 AdminButton 렌더링 */}
+        {!isAuthCompletePage && <AdminButton onClick={handleAdminClick}>Admin</AdminButton>}
+        {/* '/authcomplete' 페이지가 아닐 때만 Navbar 렌더링 */}
+        {!isAuthCompletePage && (
+          <Navbar>
+            <Nav>
+              <NavItem>
+                <LinkItem to="/">HOME</LinkItem>
+              </NavItem>
+              <NavItem>
+                <LinkItem to="/about">ABOUT US</LinkItem>
+              </NavItem>
+              <NavItem>
+                <LinkItem to="/post">POST</LinkItem>
+              </NavItem>
+              <NavItem>
+                <LinkItem to="/people">PEOPLE</LinkItem>
+              </NavItem>
+              <NavItem>
+                <LinkItem to="/signin">JOIN US</LinkItem>
+              </NavItem>
+            </Nav>
+          </Navbar>
+        )}
       </Header>
       <Outlet />
       <AuthModal isOpen={isModalOpen} onClose={closeModal} />

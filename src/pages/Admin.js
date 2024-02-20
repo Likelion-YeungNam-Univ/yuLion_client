@@ -5,6 +5,8 @@ const Admin = () => {
   const approvalName = ["윤수민", "최지우", "김서윤", "박서현", "한지민"];
   const managementName = ["윤수민", "최지우", "김서윤", "박서현", "한지민"];
 
+  const authorization = ["아기사자", "운영진"];
+
   console.log("API Fetch");
 
   return (
@@ -16,6 +18,7 @@ const Admin = () => {
             {approvalName.map((name) => (
               <AdminItemBox>
                 <AdminItem>{name}</AdminItem>
+                <div style={{ marginLeft: "400px" }}>{authorization[0]}</div>
                 <AdminButtonBox>
                   <AdminButton
                     style={{ border: "1px solid #1877f2", color: "#1877f2" }}
@@ -38,6 +41,7 @@ const Admin = () => {
             {managementName.map((name) => (
               <AdminItemBox>
                 <AdminItem>{name}</AdminItem>
+                <div style={{ marginLeft: "400px" }}>{authorization[1]}</div>
                 <AdminButtonBox>
                   <AdminButton
                     style={{ border: "1px solid #1877f2", color: "#1877f2" }}

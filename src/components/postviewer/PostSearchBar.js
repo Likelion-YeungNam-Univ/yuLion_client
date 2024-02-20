@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { PRIMARY } from "../../styles/GlobalStyle.js";
 
 const PostSearchBar = () => {
   return (
@@ -8,7 +9,7 @@ const PostSearchBar = () => {
         <SearchButton>search</SearchButton>
       </SearchBarContainer>
       <PostViewerButton>
-        <NextButton>다음글</NextButton>
+        <PostListButton>다음글</PostListButton>
         <PostListButton>목록</PostListButton>
       </PostViewerButton>
     </SearchContainer>
@@ -29,8 +30,6 @@ const SearchInput = styled.input`
   height: 40px;
   justify-content: center;
   align-items: flex-start;
-  gap: 16px;
-  flex-shrink: 0;
   outline: none;
 `;
 
@@ -55,43 +54,24 @@ const PostViewerButton = styled.div`
   margin-bottom: 24px;
   // float: right;
 `;
-const NextButton = styled.button`
-  display: inline-flex;
-  padding: 10px 12px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 5px;
-  background: rgba(255, 119, 16, 0.2);
-  color: var(--Primary-color, #ff7710);
-  /* Body/14px/140%/semibold */
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 140%;
-  border: none;
-`;
 const PostListButton = styled.button`
+  margin-left: 24px;
   display: inline-flex;
   padding: 10px 12px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  color: var(--Primary-color, #ff7710);
-  /* Body/14px/140%/semibold */
+  border-radius: 5px;
+  background:rgba(255, 119, 16, 0.2);
+  color:${PRIMARY};
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 140%;
-  border-radius: 5px;
-  background: rgba(255, 119, 16, 0.2);
   border: none;
-  margin-left: 24px;
 `;
+
 const SearchContainer = styled.div`
   margin-right: 240px;
   margin-top: 61px;
-  //   float: right;
 `;

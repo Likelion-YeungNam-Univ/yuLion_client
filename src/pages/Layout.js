@@ -11,6 +11,7 @@ import {
 } from "../styles/StyledLayout";
 import { useState } from "react";
 import AuthModal from "../components/modals/AuthModal";
+import styled from "styled-components";
 
 const Layout = () => {
   const navigate = useNavigate();
@@ -36,14 +37,16 @@ const Layout = () => {
   };
 
   // 현재 경로가 '/authcomplete'일 경우를 확인합니다.
-  const isAuthCompletePage = location.pathname === '/authcomplete';
+  const isAuthCompletePage = location.pathname === "/authcomplete";
 
   return (
     <Wrapper>
       <Header>
         <Logo src="/Logo.png" onClick={onClickLogo} />
         {/* '/authcomplete' 페이지가 아닐 때만 AdminButton 렌더링 */}
-        {!isAuthCompletePage && <AdminButton onClick={handleAdminClick}>Admin</AdminButton>}
+        {!isAuthCompletePage && (
+          <AdminButton onClick={handleAdminClick}>Admin</AdminButton>
+        )}
         {/* '/authcomplete' 페이지가 아닐 때만 Navbar 렌더링 */}
         {!isAuthCompletePage && (
           <Navbar>
@@ -63,6 +66,7 @@ const Layout = () => {
               <NavItem>
                 <LinkItem to="/signin">JOIN US</LinkItem>
               </NavItem>
+              <LayoutProfileButton>프</LayoutProfileButton>
             </Nav>
           </Navbar>
         )}
@@ -74,3 +78,13 @@ const Layout = () => {
 };
 
 export default Layout;
+
+const LayoutProfileButton = styled.button`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border: 0;
+`;

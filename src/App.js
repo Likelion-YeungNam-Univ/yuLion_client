@@ -13,6 +13,7 @@ import Admin from "./pages/Admin";
 import LectureNote from "./pages/LectureNote";
 import Post from "./pages/Post";
 import QnA from "./pages/QnA";
+import Homework from "./pages/Homework";
 
 const router = createBrowserRouter([
   {
@@ -66,7 +67,11 @@ const router = createBrowserRouter([
       {
         path:"authcomplete",
         element: <AuthComplete/>,
-      }
+      },     
+      {
+        path:"homework",
+        element: <Homework/>,
+      },
     ],
   },
 ]);

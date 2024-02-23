@@ -77,6 +77,7 @@ const Layout = () => {
     <Wrapper>
       <Header>
         <Logo src="/Logo.png" onClick={onClickLogo} />
+
         {/* '/authcomplete' 페이지가 아닐 때만 AdminButton 렌더링 */}
         {!isAuthCompletePage && (
           <AdminButton onClick={handleAdminClick}>Admin</AdminButton>

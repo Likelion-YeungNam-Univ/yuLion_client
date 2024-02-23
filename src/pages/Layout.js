@@ -35,16 +35,14 @@ const Layout = () => {
     setIsModalOpen(false);
   };
 
-  // 현재 경로가 '/authcomplete'일 경우를 확인합니다.
+
   const isAuthCompletePage = location.pathname === '/authcomplete';
 
   return (
     <Wrapper>
       <Header>
         <Logo src="/Logo.png" onClick={onClickLogo} />
-        {/* '/authcomplete' 페이지가 아닐 때만 AdminButton 렌더링 */}
         {!isAuthCompletePage && <AdminButton onClick={handleAdminClick}>Admin</AdminButton>}
-        {/* '/authcomplete' 페이지가 아닐 때만 Navbar 렌더링 */}
         {!isAuthCompletePage && (
           <Navbar>
             <Nav>

@@ -8,10 +8,11 @@ const AuthComplete = () => {
     <AuthCompleteContainer>
       <CompleteContainer>
         <Likelionlogo src="likelion-logo.png"></Likelionlogo>
-        <WelcomeComment color={PRIMARY} margin={"139px"} lineheight={"140%"}>
-          홍길동님,
+        <WelcomeComment color={PRIMARY} margin={"139px"} lineheight={"140%"}nameColor="black">
+          홍길동
+          <span>님,</span>
         </WelcomeComment>
-        {/* <WelcomeComment>님,</WelcomeComment> */}
+        {/* <WelcomeComment >님,</WelcomeComment> */}
         <br />
         <WelcomeComment>만나서 반가워요!</WelcomeComment>
         <SubtitleComment margintop={"91px"}>사람과 기술을 연결하다.</SubtitleComment>
@@ -34,8 +35,9 @@ const AuthCompleteContainer = styled.div`
 const Likelionlogo = styled.img`
   width: 232px;
   height: 18px;
-  margin-left: 58px;
   margin-top: 16px;
+  display: block;
+  margin: auto;
 `;
 
 const Completeicon = styled.img`
@@ -72,11 +74,14 @@ const WelcomeComment = styled.h1`
   font-style: normal;
   font-weight: 700;
   font-size: 56px;
-  line-height: ${(props) => props.lineheight}
+  line-height: ${(props) => props.lineheight};
   align-items: center;
   text-align: center;
   width: 598px;
   margin-top: ${(props) => props.margin};
+  & span {
+    color: ${(props) => props.nameColor || "inherit"}
+  }
 `;
 
 const SubtitleComment = styled.h1`

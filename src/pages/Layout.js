@@ -62,7 +62,7 @@ const Layout = () => {
         console.error(error1)
         console.error('getUserProfilAPI() Error. Try Refresh')
         try {
-          const res = await refresh(getUserProfilAPI())
+          const res = await refresh(getUserProfilAPI)
           setNickname(res.data.nickname)
         } catch (error2) {
           console.error(error1)

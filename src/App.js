@@ -14,6 +14,7 @@ import LectureNote from "./pages/LectureNote";
 import Post from "./pages/Post";
 import QnA from "./pages/QnA";
 import Homework from "./pages/Homework";
+import MyProfile from "./pages/MyProfile";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
       {
         path:"homework",
         element: <Homework/>,
+      },
+      {
+        path:"myprofile",
+        element: <MyProfile/>,
       },
     ],
   },

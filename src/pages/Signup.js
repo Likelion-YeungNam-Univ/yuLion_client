@@ -11,18 +11,17 @@ import {
   ErrorMsg,
   SignupBtn
 } from "../styles/SignupStyle"
-
+import { useNavigate } from "react-router-dom";
+import signup from "../auth/signup";
+// Gender
 const MALE = "male"
 const FEMALE = "female"
 const OTHER = "other"
 
-const tempAPI = (data) => {
-  return new Promise((resolve,) => {
-    setTimeout(() => {
-      resolve({...data, isOK: true});
-    }, 1000);
-  });
-}
+// User Type
+// const MANAGER = "manager"
+// const GENERAL = "general"
+
 
 const Signup = () => {
 
@@ -35,34 +34,39 @@ const Signup = () => {
   } = useForm({ 
     mode: 'onChange',
     defaultValues: {
-      gender: OTHER
+      gender: OTHER,
+      // usertype: GENERAL
     }
   })
 
+  const navigate = useNavigate()
+
   const onSubmit = async(data) => {
-    console.log("data : ",data)
+    // FIXME
+    // 실패 이유가 어떤 이유인지 서버측에서 알려주기 않음(아이디, 휴대폰 중복인지)
     try {
-      const res = await tempAPI(data)
-      console.log(res)
-    } catch(e) {
+      const res = await signup(data)
+      navigate('/authcomplete')
+    } catch (e) {
       console.error(e)
+      alert("회원가입 실패")
     }
   }
 
   // 날짜 유효성 검사
-  const isValidDate = (dateString) => {
-    const year = dateString.substring(0, 4);
-    const month = dateString.substring(4, 6);
-    const day = dateString.substring(6, 8);
+  // const isValidDate = (dateString) => {
+  //   const year = dateString.substring(0, 4);
+  //   const month = dateString.substring(4, 6);
+  //   const day = dateString.substring(6, 8);
   
-    const date = new Date(year, month - 1, day);
+  //   const date = new Date(year, month - 1, day);
     
-    if (date && (date.getMonth() + 1) === Number(month) && date.getDate() === Number(day)) {
-      return true;
-    } else {
-      return '유효하지 않은 날짜입니다.';
-    }
-  }
+  //   if (date && (date.getMonth() + 1) === Number(month) && date.getDate() === Number(day)) {
+  //     return true;
+  //   } else {
+  //     return '유효하지 않은 날짜입니다.';
+  //   }
+  // }
 
 
   const handlePhoneNumberChange = (value) => {
@@ -75,6 +79,7 @@ const Signup = () => {
       return value.slice(0,3) + "-" + value.slice(3,7) + "-" + value.slice(7)
     }
   }
+
   return (
     <SignupContainer>
       <form
@@ -126,10 +131,10 @@ const Signup = () => {
 
         {/* Name */}
         <SignupInput $loc="top"
-          id="name"
+          id="nickname"
           type="text"
           placeholder="이름"
-          {...register("name", {
+          {...register("nickname", {
             required: "이름 : 이름을 입력해 주세요.",
           })}
           disabled={isSubmitting}
@@ -137,16 +142,16 @@ const Signup = () => {
 
         {/* Birth */}
         <SignupInput $loc="mid"
-          id="birthDate"
-          type="number"
+          id="birth"
+          type="date"
           placeholder="생년월일 8자리(YYYYMMDD)"
-          {...register("birthDate", {
+          {...register("birth", {
             required: "생년월일을 입력해 주세요.",
-            pattern: {
-              value: /^\d{8}$/,
-              message: '생년월일 : YYYYMMDD 형식으로 작성해 주세요'
-            },
-            validate: isValidDate
+            // pattern: {
+            //   value: /^\d{8}$/,
+            //   message: '생년월일 : YYYYMMDD 형식으로 작성해 주세요'
+            // },
+            // validate: isValidDate
           })}
           disabled={isSubmitting}
         ></SignupInput>
@@ -166,6 +171,18 @@ const Signup = () => {
             기타
           </GenderItem>
         </GenderBox>
+
+        {/* User type */}
+        {/* <GenderBox>
+          <GenderItem $isSelect={watch("usertype") === MANAGER} $loc={"left"}>
+            <GenderRadioBtn value={MANAGER}   {...register("usertype")}></GenderRadioBtn>
+              메니저
+            </GenderItem>
+          <GenderItem $isSelect={watch("usertype") === GENERAL} $loc={"right"}>
+            <GenderRadioBtn value={GENERAL} {...register("usertype")}></GenderRadioBtn>
+              아기사자
+            </GenderItem>
+        </GenderBox> */}
 
         {/* Phone number */}
         <Controller
@@ -191,11 +208,11 @@ const Signup = () => {
           )}
         />
         <ErrorBox>
-          {errors.name && <ErrorMsg>
-            {errors.name.message}
+          {errors.nickname && <ErrorMsg>
+            {errors.nickname.message}
           </ErrorMsg>}
-          {errors.birthDate && <ErrorMsg>
-            {errors.birthDate.message}
+          {errors.birth && <ErrorMsg>
+            {errors.birth.message}
           </ErrorMsg>}
           {errors.phoneNumber && <ErrorMsg>
             {errors.phoneNumber.message}
@@ -205,10 +222,10 @@ const Signup = () => {
 
         {/* Student ID */}
         <SignupInput $loc="top"
-          id="stdId"
+          id="studentId"
           type="number"
           placeholder="학번"
-          {...register("stdId", {
+          {...register("studentId", {
             required: "학번을 입력해 주세요.",
             pattern: {
               value: /^\d{8}$/,
@@ -220,10 +237,10 @@ const Signup = () => {
 
         {/* Github ID */}
         <SignupInput $loc="bottom"
-          id="github"
+          id="githubUsername"
           type="text"
           placeholder="Github 주소"
-          {...register("github", {
+          {...register("githubUsername", {
             required: "Github 주소를 입력해 주세요.",
           })}
         ></SignupInput>

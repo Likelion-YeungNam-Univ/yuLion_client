@@ -13,6 +13,11 @@ import Admin from "./pages/Admin";
 import LectureNote from "./pages/LectureNote";
 import Post from "./pages/Post";
 import QnA from "./pages/QnA";
+import Homework from "./pages/Homework";
+import MyProfile from "./pages/MyProfile";
+// import { Provider } from "react-redux";
+// import store from "./store/store";
+import Test from "./pages/Test";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +71,19 @@ const router = createBrowserRouter([
       {
         path:"authcomplete",
         element: <AuthComplete/>,
+      },     
+      {
+        path:"homework",
+        element: <Homework/>,
+      },
+      {
+        path:"myprofile",
+        element: <MyProfile/>,
+      },
+      },
+      {
+        path:"test",
+        element: <Test/>,
       }
     ],
   },

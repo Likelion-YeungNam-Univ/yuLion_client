@@ -80,7 +80,6 @@ const router = createBrowserRouter([
         path:"myprofile",
         element: <MyProfile/>,
       },
-      },
       {
         path:"test",
         element: <Test/>,

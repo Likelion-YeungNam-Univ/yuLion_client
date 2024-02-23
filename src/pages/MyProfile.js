@@ -2,12 +2,18 @@ import styled from "styled-components";
 import { GRAY30, PRIMARY, WHITE } from "../styles/GlobalStyle";
 import { FaRegCheckCircle, FaCheckCircle } from "react-icons/fa";
 import { useState } from "react";
+import DeleteIdPopup from "../components/profile/DeleteIdPopup";
 
 const MyProfile = () => {
     const [disabled, setDisabled]=useState(false);
     const toggleDisabled = () => {
         setDisabled(!disabled);
     };
+
+    const [deleteId, setDeleteId] = useState(false);
+    const handleDelete = () => {
+        setDeleteId(!deleteId);
+    }
 
     return (
         <PorfileForm>
@@ -33,8 +39,12 @@ const MyProfile = () => {
                 </button>
                 <p>계정 비활성화</p>
             </DisableBox>
-            <button  className="profile-submit-btn"
+            <button className="profile-submit-btn"
                     type="submit">수정하기</button>
+            <button className="delete-id-btn"
+                    type="button"
+                    onClick={()=>setDeleteId(!deleteId)}>탈퇴하기</button>
+            {deleteId && <DeleteIdPopup deleteId={deleteId} Delete={handleDelete}/>}
         </PorfileForm>
     )
 }
@@ -45,6 +55,7 @@ const PorfileForm = styled.form`
     width: 464px;
     margin: auto;
     margin-top: 40px;
+    text-align: center;
 
     .profile-submit-btn{
         margin-top: 60px;
@@ -57,11 +68,18 @@ const PorfileForm = styled.form`
         font-size: 18px;
         font-weight: 550;
     }
+
+    .delete-id-btn{
+        margin-top: 5px;
+        color: ${GRAY30};
+        font-size: 15px;
+        background-color: inherit;
+        border: none;
+        cursor: pointer;
+    }
 `;
 
 const UserImgBox = styled.div`
-    text-align: center;
-
     img{
         border-radius: 100%;
     }

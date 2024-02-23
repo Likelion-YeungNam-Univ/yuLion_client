@@ -13,7 +13,9 @@ import Admin from "./pages/Admin";
 import LectureNote from "./pages/LectureNote";
 import Post from "./pages/Post";
 import QnA from "./pages/QnA";
-
+// import { Provider } from "react-redux";
+// import store from "./store/store";
+import Test from "./pages/Test";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -66,6 +68,10 @@ const router = createBrowserRouter([
       {
         path:"authcomplete",
         element: <AuthComplete/>,
+      },
+      {
+        path:"test",
+        element: <Test/>,
       }
     ],
   },

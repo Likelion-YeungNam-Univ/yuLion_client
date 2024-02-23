@@ -16,16 +16,7 @@ import {
   SignupBox,
   SignupBtn,
 } from "../styles/SigninStyle"
-
-// Test용 API
-const tempAPI = (data) => {
-  return new Promise((resolve,) => {
-    setTimeout(() => {
-      resolve({...data, isOK: true});
-    }, 1000);
-  });
-}
-
+import signin from "../auth/signin";
 
 const Signin = () => {
 
@@ -34,7 +25,6 @@ const Signin = () => {
     handleSubmit,
     formState: {isSubmitting, errors},
   } = useForm()
-
   const [keepSignin, setKeepSignin] = useState(false)
 
   const handleKeepSignin = (e) => {
@@ -43,15 +33,17 @@ const Signin = () => {
   }
 
   const onSubmit = async(data) => {
-    console.log("data : ",data)
+    // FIXME
+    // 실패 이유가 어떤 이유인지 서버측에서 알려주기 않음(존재하지 않은 / 비밀번호 오류)
+    // + 서버측에서 굳이 email 형식을 검사할 필요는 없을 것 같음(현재 이메일 형식이 아닌 경우 500에러 발생)
     try {
-      const res = await tempAPI(data)
-      console.log(res)
-    } catch(e) {
+      await signin(data)
+      window.location.replace('/')
+    } catch (e) {
       console.error(e)
+      alert("로그인 오류")
     }
   }
-
 
   return (
     <SigninContainer>

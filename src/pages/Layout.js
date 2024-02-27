@@ -46,7 +46,13 @@ const Layout = () => {
               <LinkItem to="/">HOME</LinkItem>
             </NavItem>
             <NavItem>
-              <LinkItem onClick={()=>{alert("준비중입니다..")}}>ABOUT US</LinkItem>
+              <LinkItem
+                onClick={() => {
+                  alert("준비중입니다..");
+                }}
+              >
+                ABOUT US
+              </LinkItem>
             </NavItem>
             <NavItem>
               <LinkItem to="/post">POST</LinkItem>
